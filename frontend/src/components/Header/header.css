@@ -23,7 +23,7 @@
     color: inherit;
 }
 
-nav__item a.active__link {
+.nav__item a.active__link {
     color: var(--secondary-color);
 }
 
