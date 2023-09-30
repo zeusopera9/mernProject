@@ -1,4 +1,3 @@
-
 .hero_subtitle img {
     width: 2.3rem;
     height: 2.3rem;
@@ -39,7 +38,6 @@
     padding-top: 2rem;
 }
 
-
 .services_subtitle{
     font-size: 2.2rem;
     font-weight: 500;
@@ -49,5 +47,10 @@
 
 .services_title{
     font-size: 2.5rem;
+    font-weight: 500;
+}
+
+.featured__tour-title {
+    font-size: 2.3rem;
     font-weight: 500;
 }
