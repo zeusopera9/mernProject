@@ -5,6 +5,7 @@ import heroImg from '../assets/images/hero-img01.jpg';
 import heroImg02 from '../assets/images/hero-img02.jpg';
 import heroVideo from '../assets/images/hero-video.mp4';
 import worldImg from '../assets/images/world.png';
+import experienceImg from '../assets/images/experience.png';
 import Subtitle from '../shared/Subtitle';
 import SearchBar from '../shared/SearchBar';
 import ServiceList from '../services/ServiceList';
@@ -71,6 +72,42 @@ const Home = () => {
               <h2 className="featured__tour-title">Our Featured Tour</h2>
             </Col>
             <FeaturedTourList />
+          </Row>
+        </Container>
+      </section>
+      <section>
+        <Container>
+          <Row>
+            <Col lg='6'>
+              <div className='experience_content'>
+                <Subtitle subtitle={'Experience'} />
+
+                <h2>With all our experience <br/> we will serve you</h2>
+                <p>Lorem ipsum dolor sit amet,
+                  <br />
+                  Quas aliquam,hic tempora inventore.
+                </p>
+              </div>
+              <div className="counter_wrapper d-flex align-items-center gap-5">
+                <div className="counter_box">
+                  <span>12k+</span>
+                  <h6>Successful Trips</h6>
+                </div>
+                <div className="counter_box">
+                  <span>2k+</span>
+                  <h6>Regular Clients</h6>
+                </div>
+                <div className="counter_box">
+                  <span>15</span>
+                  <h6>Years of Experience</h6>
+                </div>
+              </div>
+            </Col>
+            <Col lg='6'>
+              <div className="experience_img">
+                <img src={experienceImg} alt=""/>
+              </div>
+            </Col>
           </Row>
         </Container>
       </section>
