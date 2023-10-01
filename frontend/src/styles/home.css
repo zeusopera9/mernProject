@@ -94,3 +94,22 @@
 .experience_img img{
     width: 90%;
 }
+
+.gallery_title{
+    font-size: 2.3rem;
+    margin-bottom: 2.5rem;
+    margin-top: 1rem;
+}
+
+.masonry_img{
+    transition: 0.3s;
+}
+
+.masonry_img:hover{
+    transform: scale(1.1);
+}
+
+.testimonial_title{
+    font-size: 2.3rem;
+    margin-top: 1rem;
+}

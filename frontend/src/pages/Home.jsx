@@ -10,7 +10,8 @@ import Subtitle from '../shared/Subtitle';
 import SearchBar from '../shared/SearchBar';
 import ServiceList from '../services/ServiceList';
 import FeaturedTourList from '../components/Featured-tours/FeaturedTourList';
-
+import MasonryImagesGallery from '../components/Image-gallery/MasonryImagesGallery';
+import Testimonials from '../components/Testimonial/Testimonials';
 const Home = () => {
   return (
     <>
@@ -107,6 +108,34 @@ const Home = () => {
               <div className="experience_img">
                 <img src={experienceImg} alt=""/>
               </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <section>
+        <Container>
+          <Row>
+            <Col lg='12'>
+              <Subtitle subtitle={'Gallery'}/>
+              <h2 className='gallery_title'>Visit our customers tour gallery</h2>
+            </Col>
+            <Col lg='12'>
+              <MasonryImagesGallery />
+            </Col>
+          </Row>
+        </Container>
+      </section>
+      <section>
+        <Container>
+          <Row>
+            <Col lg='12'>
+              <Subtitle subtitle={'Fans Love'} />
+              <h2 className='testimonial_title'>What our fans say about us</h2>
+    
+            </Col>
+            <Col lg='12'>
+              <Testimonials />
             </Col>
           </Row>
         </Container>
