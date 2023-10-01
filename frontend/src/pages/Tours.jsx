@@ -14,9 +14,10 @@ const Tours = () => {
 
   useEffect(() => {
 
-    const pages = Math.ceil( 5/ 8)  //Will use backend data
+    const pages = Math.ceil( 5/ 4)  //Will use backend data
+    setPageCount(pages)
 
-  },)
+  },[page])
 
   return (
     <>
@@ -39,11 +40,21 @@ const Tours = () => {
             }
 
             <Col lg='12'>
-
+              <div className="pagination d-flex align-items-center justify-content-center
+              gap-3">
+                {[...Array(pageCount).keys()].map(number => (
+                  <span key={number} onClick = {() => setPage(number)}
+                  className={page===number?'active__page':''}
+                  >
+                    {number + 1}
+                  </span>
+                ))}
+              </div>
             </Col>
           </Row>
         </Container>
       </section>
+      <Newsletter />
     </>
   )
 }
