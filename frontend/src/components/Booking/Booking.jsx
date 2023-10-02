@@ -6,6 +6,7 @@ const Booking = ({tour,avgRating}) =>{
 
     const {price, reviews} = tour;
     const navigate = useNavigate()
+    
     const[credentials, setCredentials]=useState({
         userId:'01',
         userEmail:'example@gmail.com',
