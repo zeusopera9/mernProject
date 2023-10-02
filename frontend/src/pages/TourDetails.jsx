@@ -1,13 +1,17 @@
-import React from 'react'
-import '../styles/tour-details.css'
-import {Container, Row, Col, Form, ListGroup} from 'reactstrap'
-import {useParams} from 'react-router-dom'
-import tourData from '../assets/data/tours'
-import calculateAvgRating from '../utils/avgRating'
+import React, { useRef, useState } from 'react';
+import '../styles/tour-details.css';
+import {Container, Row, Col, Form, ListGroup} from 'reactstrap';
+import {useParams} from 'react-router-dom';
+import tourData from '../assets/data/tours';
+import calculateAvgRating from '../utils/avgRating';
 import avatar from "../assets/images/avatar.jpg";
+import Booking from '../components/Booking/Booking';
+
 const TourDetails = () => {
 
   const {id} = useParams()
+  const reviewMsgRef = useRef('');
+  const[tourRating , setTourRating]=useState(null);
 
   // This is a static data layer. We shall call our API and load data from
   // the database
@@ -15,7 +19,15 @@ const TourDetails = () => {
 
   // Destructing properties from tour obejct
   const {photo, title, desc, price, address, reviews, city, distance, maxGroupSize} = tour;
-  const {totalRating, avgRating} = calculateAvgRating(reviews)
+  const {totalRating, avgRating} = calculateAvgRating(reviews);
+
+  const options = { day:'numeric', month:'long',year:'numeric' };
+  const submitHandler = e =>{
+    e.preventDefualt()
+    const reviewText = reviewMsgRef.current.value
+    alert(`${reviewText}, ${tourRating}`)
+  }
+
 
   return (
     <>
@@ -31,7 +43,7 @@ const TourDetails = () => {
 
                   <div className='d-flex align-items-center gap-5'>
                     <span className="tour__rating d-flex align-items-center gap-1">
-                      <i className="ri-star-fill" style={{'color':"var(--secondary-color)"}}></i>{calculateAvgRating  === 0 ? null: avgRating}
+                      <i className="ri-star-fill" style={{'color':"var(--secondary-color)"}}></i>{avgRating  === 0 ? null: avgRating}
                       {totalRating===0 ? ('Not rated') : (<span>({reviews?.length})</span>) }
                     </span>
 
@@ -47,7 +59,10 @@ const TourDetails = () => {
                       <i className="ri-money-dollar-circle-line"></i>${price} / person
                     </span>
                     <span>
-                      <i className="ri-group-line"></i>{maxGroupSize}
+                      <i className="ri-map-pin-time-line"></i>{distance} k/m
+                    </span>
+                    <span>
+                      <i className="ri-group-line"></i>{maxGroupSize} people
                     </span>
                   </div>
                   <h5>
@@ -60,27 +75,27 @@ const TourDetails = () => {
                   <h4>
                     Reviews ({reviews?.length} reviews)
                   </h4>
-                  <Form>
+                  <Form onSubmit={submitHandler}>
                     <div className="d-flex align-items-center gap-3 mb-4 rating__group">
-                      <span>
+                      <span onClick={()=>setTourRating(1)}>
                         1 <i className="ri-star-s-fill"></i>
                       </span>
-                      <span>
+                      <span onClick={()=>setTourRating(2)}>
                         2 <i className="ri-star-s-fill"></i>
                       </span>
-                      <span>
+                      <span onClick={()=>setTourRating(3)}>
                         3 <i className="ri-star-s-fill"></i>
                       </span>
-                      <span>
+                      <span onClick={()=>setTourRating(4)}>
                         4 <i className="ri-star-s-fill"></i>
                       </span>
-                      <span>
+                      <span onClick={()=>setTourRating(5)}>
                         5 <i className="ri-star-s-fill"></i>
                       </span>
                     </div>
 
                     <div className="review__input">
-                      <input type="text" placeholder="Share your thoughts" />
+                      <input type="text" ref={reviewMsgRef} placeholder="Share your thoughts" required/>
                       <button className='btn primary__btn text-white' type="submit">
                         Submit
                       </button>
@@ -98,10 +113,14 @@ const TourDetails = () => {
                               <div>
                                 <h5>Rylan</h5>
                                 <p>
-                                  {new Date("02-10-2023").toLocaleDateString("en-US")}
+                                  {new Date("02-10-2023").toLocaleDateString("en-US", options)}
                                 </p>
                               </div>
+                              <span className='d-flex align-items-center'>
+                                5<i class='ri-star-s-fill'></i>
+                              </span>
                             </div>
+                            <h6>Amazing tour</h6>
                           </div>
                         </div>
                       ))
@@ -109,6 +128,10 @@ const TourDetails = () => {
                   </ListGroup>
                 </div>
               </div>
+            </Col>
+
+            <Col lg='4'>
+              <Booking tour={tour} avgRating={avgRating} />
             </Col>
           </Row>
         </Container>

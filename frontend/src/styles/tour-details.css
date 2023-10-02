@@ -79,3 +79,49 @@
 .review__input input:focus{
     outline: none;
 }
+
+.review__item{
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.review__item img{
+    width:3.5rem;
+    height:3.5rem;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.user__reviews{
+    margin-top: 2.5rem;
+
+}
+
+.review__item h5{
+    font-size:1rem;
+    margin-bottom: 0;
+}
+
+.review__item p{
+    font-size: 0.9rem;
+    color:var(--text-color);
+}
+
+.review__item h6{
+    font-size: 1.1rem;
+    color:var(--text-color);
+}
+
+.review__item span i{
+    font-size: 1.2rem;
+    color:var(--secondary-color);
+}
+
+.review__item span{
+    font-weight: 500;
+}
+
+
+
