@@ -4,7 +4,7 @@ import {Container, Row, Col, Form, ListGroup} from 'reactstrap'
 import {useParams} from 'react-router-dom'
 import tourData from '../assets/data/tours'
 import calculateAvgRating from '../utils/avgRating'
-
+import avatar from "../assets/images/avatar.jpg";
 const TourDetails = () => {
 
   const {id} = useParams()
@@ -86,6 +86,27 @@ const TourDetails = () => {
                       </button>
                     </div>
                   </Form>
+
+                  <ListGroup className='user__reviews'>
+                    {
+                      reviews ?.map(review =>(
+                        <div className='review__item'>
+                          <img src={avatar} alt="" />
+
+                          <div className='w-100'>
+                            <div className='d-flex align-items-center justify-content-between'>
+                              <div>
+                                <h5>Rylan</h5>
+                                <p>
+                                  {new Date("02-10-2023").toLocaleDateString("en-US")}
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))
+                    }
+                  </ListGroup>
                 </div>
               </div>
             </Col>
