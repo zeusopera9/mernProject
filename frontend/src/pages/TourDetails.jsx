@@ -32,9 +32,60 @@ const TourDetails = () => {
                   <div className='d-flex align-items-center gap-5'>
                     <span className="tour__rating d-flex align-items-center gap-1">
                       <i className="ri-star-fill" style={{'color':"var(--secondary-color)"}}></i>{calculateAvgRating  === 0 ? null: avgRating}
-                      {totalRating===0 ? ('Not rated') : (<span>({reviews.length})</span>) }
+                      {totalRating===0 ? ('Not rated') : (<span>({reviews?.length})</span>) }
+                    </span>
+
+                    <span>
+                      <i className="ri-map-pin-user-fill"></i>{address}
                     </span>
                   </div>
+                  <div className="tour__extra-details">
+                    <span>
+                      <i className="ri-map-pin-2-line"></i>{city}
+                    </span>
+                    <span>
+                      <i className="ri-money-dollar-circle-line"></i>${price} / person
+                    </span>
+                    <span>
+                      <i className="ri-group-line"></i>{maxGroupSize}
+                    </span>
+                  </div>
+                  <h5>
+                    Description
+                  </h5>
+                  <p>{desc}</p>
+                </div>
+
+                <div className="tour__reviews mt-4">
+                  <h4>
+                    Reviews ({reviews?.length} reviews)
+                  </h4>
+                  <Form>
+                    <div className="d-flex align-items-center gap-3 mb-4 rating__group">
+                      <span>
+                        1 <i className="ri-star-s-fill"></i>
+                      </span>
+                      <span>
+                        2 <i className="ri-star-s-fill"></i>
+                      </span>
+                      <span>
+                        3 <i className="ri-star-s-fill"></i>
+                      </span>
+                      <span>
+                        4 <i className="ri-star-s-fill"></i>
+                      </span>
+                      <span>
+                        5 <i className="ri-star-s-fill"></i>
+                      </span>
+                    </div>
+
+                    <div className="review__input">
+                      <input type="text" placeholder="Share your thoughts" />
+                      <button className='btn primary__btn text-white' type="submit">
+                        Submit
+                      </button>
+                    </div>
+                  </Form>
                 </div>
               </div>
             </Col>
