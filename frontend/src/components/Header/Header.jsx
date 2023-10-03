@@ -69,7 +69,7 @@ const Header = () => {
                 </Button>
                 <Button className='btn primary__btn'>
                   <Link to='/register'>
-                    Regiser
+                    Register
                   </Link>
                 </Button>
               </div>
