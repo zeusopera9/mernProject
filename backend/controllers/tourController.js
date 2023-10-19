@@ -10,9 +10,9 @@ export const createTour = async(req, res) => {
     try {
         const savedTour = await newTour.save()
         
-        res.status(200).json({success:true, message:'Successfully created', 
+        res.status(200).json({success:true, message:'Successfully Created', 
         data:savedTour})
     } catch(err) {
-        res.status(500).json({success:true, message:'Successfully created'})
+        res.status(500).json({success:false, message:'Failed to Create. Try again'})
     }
 }

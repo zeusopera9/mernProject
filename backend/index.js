@@ -4,6 +4,8 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 
+import tourRoute from './routes/tours.js'
+
 
 dotenv.config();
 const app = express();
@@ -27,6 +29,7 @@ const connect = async()=> {
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
+app.use('/tours', tourRoute);
 
 
 app.listen(port, () => {
