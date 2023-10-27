@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'reactstrap'
 
 import { useLocation } from 'react-router'
 import TourCard from './../shared/TourCard'
+import Newsletter from './../shared/Newsletter';
 
 const SearchResultList = () => {
 
@@ -25,6 +26,7 @@ const SearchResultList = () => {
           </Row>
         </Container>
       </section>
+      <Newsletter></Newsletter>
     </>
   )
 }
