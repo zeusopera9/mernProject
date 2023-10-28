@@ -1,11 +1,14 @@
 import React from 'react'
 import {Container, Row, Col, Form, FormGroup, Button} from 'reactstrap'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import '../styles/login.css'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 
 import loginImg from '../assets/images/login.png'
 import userIcon from '../assets/images/user.png'
+
+import {AuthContext} from './../context/AuthContext'
+import {BASE_URL} from './../utils/config'
 
 const Login = () => {
 
