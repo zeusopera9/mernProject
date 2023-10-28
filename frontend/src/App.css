@@ -2,12 +2,29 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --primary-color: #ff7e01;
-  --secondary-color: #faa935;
-  --heading-color: #0b2727;
-  --text-color: #6e7074;
+  --primary-color: #00DC82;
+  --secondary-color: #00DC82;
+  --primary-icon: #1c835b;
+  --heading-color: #fff;
+  --text-color: #b1c0d6;
   --font-name: "Montserrat", sans-serif;
   --subtitle-font-name: "Island Moments", cursive;
+
+  --gradient-bg: linear-gradient(
+        to right,
+        rgb(0, 220, 130),
+        rgb(54, 228, 218),
+        rgb(22, 167, 158)
+    );
+    --primary-bg: linear-gradient(
+      #010213,
+      #0b111d,
+      #010213
+    );
+  --border-r: 20px;
+  --card-color: #10172E;
+  --secondary-border: 2px solid #394364;
+  --inactive-color: #394364;
 }
 
 * {
@@ -20,8 +37,26 @@ body {
   font-family: var(--font-name);
 }
 
+
+/* scroll-bar starts here */
+body::-webkit-scrollbar{
+  width: 0.5rem;
+}
+
+body::-webkit-scrollbar-track{
+  background: var(--primary-bg);
+}
+
+body::-webkit-scrollbar-thumb{
+  background: var(--text-color);
+  border-radius: 0.125rem;
+}
+/* scroll-bar ends here */
+
+
 section {
   padding: 50px 0px;
+  background: var(--primary-bg);
 }
 
 h1,
@@ -41,21 +76,63 @@ ul {
   list-style: none;
 }
 
+.primary__btn a{
+  text-decoration: none;
+  color: rgb(224, 224, 224);
+}
+.primary__btn a:hover{
+  color: rgb(255, 255, 255);
+}
 .primary__btn {
-  background: var(--secondary-color) !important;
+  /* background: var(--secondary-color) !important;
   border: none !important;
-  border-radius: 50px !important;
-  padding: 0.4rem 1.5rem !important;
+  border-radius: 50px !important; */
+  padding: 0.25rem 1rem !important;
+  font-size: 1.125em !important;
+  cursor: pointer !important;
+  border-radius: 12.5px !important;
+  
+  position: relative !important;
+  border: none !important;
+  background-color: rgb(0, 0, 32) !important;
+  transition: all 200ms ease !important;
+}
+.primary__btn:hover{
+  color: white !important;
+  background-color: black !important;
 }
 
-.primary__btn a {
+.primary__btn::before {
+  content: "" !important;
+  position: absolute !important;
+  background: linear-gradient(
+      to right,
+      rgb(0, 220, 130),
+      rgb(54, 228, 218),
+      rgb(22, 167, 158)
+  ) !important;
+  inset: -2px !important;
+  z-index: -1 !important;
+  border-radius: 12.5px !important;
+  transition: all 200ms ease !important;
+}
+
+.primary__btn:hover::before {
+  box-shadow: rgba(0, 220, 130, 0.5) 0px 0px 10px 0px,
+      rgba(54, 228, 218, 0.5) 0px 0px 20px 0px !important;
+}
+
+
+
+
+/* .primary__btn a {
   font-size: 1.1rem;
   text-decoration: none;
   color: #fff;
-}
-.primary__btn a:hover {
+} */
+/* .primary__btn a:hover {
   color: inherit;
-}
+} */
 .secondary__btn {
   background: transparent !important;
   color: #0b2727 !important;
@@ -70,21 +147,21 @@ ul {
 }
 
 .secondary__btn a:hover {
-  color: inherit;
+  color: var(--secondary-color);
 }
 
-.section__subtitle {
-  background: var(--secondary-color);
-  font-family: var(--subtitle-font-name);
-  width: max-content;
-  padding: 0px 0.5rem;
-  padding-right: 1rem;
+.section_subtitle {
+  /* background: #1E293B; */
+  /* font-family: var(--subtitle-font-name); */
+  /* width: max-content; */
+  /* padding: 5px 1rem 10px; */
 
-  border-radius: 50px;
+  /* border-radius: var(--border-r); */
   font-weight: 500;
-  font-size: 1.7rem;
-  color: var(--heading-color);
+  font-size: 2.5rem;
+  color: var(--secondary-color);
 }
+
 
 @media only screen and (max-width: 992px) {
   .primary__btn a, .secondary__btn a {
@@ -101,6 +178,6 @@ ul {
 
 @media only screen and (max-width: 768px) {
   .section__subtitle {
-     font-size: 1.3rem;
+    font-size: 1.3rem;
   }
 }
