@@ -45,7 +45,7 @@ const SearchBar =() =>{
                     <span><i className="ri-map-pin-time-line"></i></span>
                     <div>
                         <h6>Distance</h6>
-                        <input type="number" placeholder="Distance k/m" ref={distanceRef} />
+                        <input type="number" placeholder="Distance km" ref={distanceRef} />
                     </div>
                 </FormGroup>
                 <FormGroup className="d-flex gap-3 form_group form_group-last">

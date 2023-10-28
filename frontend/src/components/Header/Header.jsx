@@ -1,8 +1,11 @@
-import React, {useRef, useEffect} from 'react'
+import React, {useRef, useEffect, useContext} from 'react'
 import {Container, Row, Button} from 'reactstrap'
-import { NavLink, Link } from 'react-router-dom'
+import { NavLink, Link, useNavigate } from 'react-router-dom'
+
 import logo from '../../assets/images/logo.png'
 import './header.css'
+
+import { AuthContext } from './../../context/AuthContext'
 
 const nav__links = [
   {
@@ -22,6 +25,13 @@ const nav__links = [
 const Header = () => {
 
   const headerRef = useRef(null)
+  const navigate = useNavigate()
+  const {user, dispatch} = useContext(AuthContext)
+
+  const logout = () => {
+    dispatch({type: 'LOGOUT'})
+    navigate('/')
+  }
 
   const stickyHeaderFunc = () => {
     window.addEventListener('scroll', () => {
@@ -62,16 +72,26 @@ const Header = () => {
             </div>
             <div className="nav__right d-flex align-items-center gap-4">
               <div className="nav__btns d-flex align-items-center gap-4">
-                <Button className='btn secondary__btn'>
-                  <Link to='/login'>
-                    Login
-                  </Link>
-                </Button>
-                <Button className='btn primary__btn'>
-                  <Link to='/register'>
-                    Register
-                  </Link>
-                </Button>
+
+                {
+                  user ? <>
+                    <h5 className='mb-0'>{user.username}</h5>
+                    <Button className='btn btn-dark' onClick={logout}>Logout</Button>
+                  </> : <>
+                    <Button className='btn secondary__btn'>
+                      <Link to='/login'>
+                        Login
+                      </Link>
+                    </Button>
+                    <Button className='btn primary__btn'>
+                      <Link to='/register'>
+                        Register
+                      </Link>
+                    </Button>
+                  </>
+                }
+          
+                
               </div>
               <span className="mobile__menu">
                 <i className="ri-menu-line"></i>
