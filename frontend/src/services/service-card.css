@@ -1,8 +1,14 @@
 .service_item{
     padding: 1rem;
-    border-bottom: 1px solid #faa83586;
-    border-right: 1px solid #faa83586;
+    border-bottom: var(--secondary-border);
+    border-right: var(--secondary-border);
     border-radius: 0.5rem;
+}
+
+@media (max-width: 1000px){
+    .service_item{
+        margin-bottom: 4rem;
+    }
 }
 
 .service_img{
@@ -12,7 +18,7 @@
     align-items: center;
     justify-content: center;
     border-radius: 50px;
-    background: var(--secondary-color);
+    background: var(--primary-icon);
     padding: 0.5rem;
     margin-bottom: 1rem;
     line-height: 50px;

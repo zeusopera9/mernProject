@@ -1,40 +1,63 @@
 .search_bar{
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    box-shadow: rgba(17,12,46,0.15) 0px 48px 100px 0px;
+    border-radius: var(--border-r);
     width: max-content;
     margin-top: 50px;
+    border: var(--secondary-border);
+    background-color: var(--card-color);
+    transition: all 200ms ease;
+
+    padding: 1.5rem 2rem 1rem;
+    flex-direction: row;
+}
+.search_bar:hover{
+    border: 2px solid var(--secondary-color);
+}
+
+
+
+@media (max-width: 1000px){
+    .search_bar{
+        padding: 3rem 3rem 2rem 2rem;
+    }
+    .search_bar form{
+        flex-direction: column;
+    }
 }
 
 .form_group span{
     font-size: 1.8rem;
-    color:#ee6e6e;
+    color:var(--secondary-color);
 }
 
 .form_group input{
     border:none;
     font-size: 0.9rem;
-    color:var(--heading-color);
+    color: var(--text-color);
+    background: var(--card-color);
+    border-bottom: var(--secondary-border);
     font-weight: 500;
+    transition: all 200ms ease;
 }
 
 .form_group input:focus{
     outline: none;
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 .form_group h6{
     margin-bottom: 0;
 }
 
-.form_group-fast{
-    border-right: 2px solid #ddd;
-}
 
 .search_icon i{
     font-size: 1.6rem;
     padding: 0.5rem;
-    background: var(--secondary-color);
+    background: var(--inactive-color);
     color:#fff;
     border-radius: 10px 5px 10px 5px;
     cursor:pointer;
+    transition: all 200ms ease;
+}
+.search_icon i:hover{
+    background: var(--secondary-color);
 }
