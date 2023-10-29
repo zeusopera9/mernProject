@@ -7,6 +7,19 @@ import { AuthContext } from "../../context/AuthContext";
 import { BASE_URL } from "../../utils/config";
 import CardBorder from "../CardBorder/CardBorder";
 
+function getCurrentDate() {
+    const today = new Date();
+    const year = today.getFullYear();
+    let month = today.getMonth() + 1;
+    let day = today.getDate();
+  
+    // Add leading zero if month or day is a single digit
+    month = month < 10 ? `0${month}` : month;
+    day = day < 10 ? `0${day}` : day;
+  
+    return `${year}-${month}-${day}`;
+  }
+
 const Booking = ({tour,avgRating}) =>{
 
     const {price, reviews, title} = tour;
@@ -87,8 +100,8 @@ const Booking = ({tour,avgRating}) =>{
                         <input type="number" placeholder="Phone" id="phone" required onChange={handleChange} />
                     </FormGroup>
                     <FormGroup className="d-flex align-items-center gap-3">
-                        <input type="date" placeholder="" id="bookAt" required onChange={handleChange} />
-                        <input type="number" placeholder="Guest" id="guestSize" required onChange={handleChange} />
+                        <input type="date" placeholder="" id="bookAt" required onChange={handleChange} min={getCurrentDate()}/>
+                        <input type="number" placeholder="Guest" id="guestSize" required onChange={handleChange} min="0" />
                     </FormGroup>
                 </Form>
             </div>
