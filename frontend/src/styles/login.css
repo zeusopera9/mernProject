@@ -9,14 +9,16 @@
  }
  
  .login__form {
+   z-index: 3;
     padding   : 50px;
-    background: var(--card-color);
+    background: var(--primary-bg);
     position  : relative;
+    border-radius: inherit;
  }
  
  .login__container {
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-    margin-top: 100px;
+    margin: 70px 0;
  }
  
  .login__form .user {
@@ -38,22 +40,23 @@
     margin-bottom: 2rem;
  }
  
- .login__form {
-    width: 60%;
- }
  
  .login__form input {
     width        : 100%;
     padding      : 0.5rem 0.5rem;
     border-radius: 5px;
     border       : none;
-    font-size    : 0.8rem;
-    color        : var(--card-color);
+    font-size    : 1rem;
+    background: transparent;
+    border-bottom: var(--secondary-border);
+    border-radius: 2px;
+    color        : var(--text-color);
     font-weight: 500;
  }
  
  .login__form input:focus {
     outline: none;
+    border-bottom: 2px solid var(--secondary-color);
  }
  
  .login__form p {
@@ -66,7 +69,7 @@
  .login__form p a {
     color          : var(--heading-color);
     text-decoration: none;
-    margin-left    : 5px;
+    margin-left    : 2px;
     font-weight    : 500;
  }
  .login__form p a:hover{
@@ -89,17 +92,32 @@
     }
  
     .login__form {
-       width : 70%;
-       margin: auto;
+       /* width : 70%; */
+       /* margin: auto; */
     }
  
     .login__container {
        padding-bottom: 3rem;
-       margin-top    : 70px;
+       /* margin-top    : 70px; */
+       width: 70%;
+       margin: 70px auto 0;
     }
  }
+
+.login__form-wrapper{
+   position: relative;
+   margin: auto;
+   width: fit-content;
+   isolation: isolate;
+   border-radius: 16px;
+}
+
  
  @media only screen and (max-width: 576px) {
+   .register__form{
+      width: 100%;
+   }
+
     .login__form {
        width: 100%;
     }
@@ -108,3 +126,7 @@
        padding-bottom: 1rem;
     }
  }
+
+ .register__form{
+   width: clamp(300px, 100%, 400px);
+}

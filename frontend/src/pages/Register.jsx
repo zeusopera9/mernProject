@@ -9,6 +9,7 @@ import userIcon from '../assets/images/user.png'
 
 import {AuthContext} from './../context/AuthContext'
 import {BASE_URL} from './../utils/config'
+import CardBorder from '../components/CardBorder/CardBorder'
 
 const Register = () => {
 
@@ -59,31 +60,34 @@ const Register = () => {
                 <img src={registerImg} alt="Login Image" />
               </div>
 
-              <div className="login__form">
-                <div className="user">
-                  <img src={userIcon} alt="User Icon" />
-                </div>
-                <h2>Register</h2>
+              <div className="login__form-wrapper register__form">
+                <CardBorder/>
+                <div className="login__form">
+                  <div className="user">
+                    <img src={userIcon} alt="User Icon" />
+                  </div>
+                  <h2>Register</h2>
 
-                <Form onSubmit={handleClick}>
-                  <FormGroup>
-                    <input type="text" placeholder='Username' required id='username' 
-                    onChange={handleChange} />
-                  </FormGroup>
-                  <FormGroup>
-                    <input type="email" placeholder='Email' required id='email' 
-                    onChange={handleChange} />
-                  </FormGroup>
-                  <FormGroup>
-                    <input type="password" placeholder='Password' required id='password' 
-                    onChange={handleChange} />
-                  </FormGroup>
-                  <Button className='btn secondary__btn auth__btn'
-                  type="submit">
-                    Create Account
-                  </Button>
-                </Form>
-                <p>Already have an Account ? <Link to='/login'>Login now</Link></p>
+                  <Form onSubmit={handleClick}>
+                    <FormGroup>
+                      <input type="text" placeholder='Username' required id='username' 
+                      onChange={handleChange} />
+                    </FormGroup>
+                    <FormGroup>
+                      <input type="email" placeholder='Email' required id='email' 
+                      onChange={handleChange} />
+                    </FormGroup>
+                    <FormGroup>
+                      <input type="password" placeholder='Password' required id='password' 
+                      onChange={handleChange} />
+                    </FormGroup>
+                    <Button className='btn secondary__btn auth__btn'
+                    type="submit">
+                      Create Account
+                    </Button>
+                  </Form>
+                  <p>Already have an Account ? <Link to='/login'>Login now</Link></p>
+                </div>
               </div>
             </div>
           </Col>

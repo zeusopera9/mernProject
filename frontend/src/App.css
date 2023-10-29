@@ -38,6 +38,11 @@ body {
 }
 
 
+::selection{
+  background-color: var(--secondary-color);
+  color: black;
+}
+
 /* scroll-bar starts here */
 body::-webkit-scrollbar{
   width: 0.5rem;

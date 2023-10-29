@@ -9,6 +9,7 @@ import userIcon from '../assets/images/user.png'
 
 import {AuthContext} from './../context/AuthContext'
 import {BASE_URL} from './../utils/config'
+import CardBorder from '../components/CardBorder/CardBorder'
 
 const Login = () => {
 
@@ -43,7 +44,7 @@ const Login = () => {
       const result = await res.json()
       if(!res.ok) alert(result.message)
 
-      console.log(result.data)
+      // console.log(result.data)
 
       dispatch({type: 'LOGIN_SUCCESS', payload: result.data})
       navigate('/')
@@ -63,28 +64,32 @@ const Login = () => {
                 <img src={loginImg} alt="Login Image" />
               </div>
 
-              <div className="login__form">
-                <div className="user">
-                  <img src={userIcon} alt="User Icon" />
-                </div>
-                <h2>Login</h2>
+              <div className="login__form-wrapper">
+                <CardBorder/>
+                <div className="login__form">
+                  <div className="user">
+                    <img src={userIcon} alt="User Icon" />
+                  </div>
+                  <h2>Login</h2>
 
-                <Form onSubmit={handleClick}>
-                  <FormGroup>
-                    <input type="email" placeholder='Email' required id='email' 
-                    onChange={handleChange} />
-                  </FormGroup>
-                  <FormGroup>
-                    <input type="password" placeholder='Password' required id='password' 
-                    onChange={handleChange} />
-                  </FormGroup>
-                  <Button className='btn secondary__btn auth__btn'
-                  type="submit">
-                    Login
-                  </Button>
-                </Form>
-                <p>Don't have an Account ? <Link to='/register'>Create one now !</Link></p>
+                  <Form onSubmit={handleClick}>
+                    <FormGroup>
+                      <input type="email" placeholder='Email' required id='email' 
+                      onChange={handleChange} />
+                    </FormGroup>
+                    <FormGroup>
+                      <input type="password" placeholder='Password' required id='password' 
+                      onChange={handleChange} />
+                    </FormGroup>
+                    <Button className='btn secondary__btn auth__btn'
+                    type="submit">
+                      Login
+                    </Button>
+                  </Form>
+                  <p>Don't have an Account ? <Link to='/register'>Create one now !</Link></p>
+                </div>
               </div>
+              
             </div>
           </Col>
         </Row>
