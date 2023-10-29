@@ -51,12 +51,25 @@ const TourDetails = () => {
 
          const result = await res.json()
          if (!res.ok) {
-          return alert(result.message);
+            return alert(result.message);
          }
 
-         alert(result.message)
+         window.location.reload(false);
+         // alert(result.message)
       } catch (err) {
          alert(err.message)
+      }
+   }
+
+   const handleRating = (rating) => {
+      setTourRating(rating);
+
+      let stars = document.getElementsByClassName("rating__group")[0].querySelectorAll("span");
+      for(let i = 0; i < stars.length; i++){
+         stars[i].style.color = "var(--text-color)";
+         if(i < rating){
+            stars[i].style.color = "var(--secondary-color)";
+         }
       }
    }
 
@@ -80,18 +93,18 @@ const TourDetails = () => {
                            <h2>{title}</h2>
                            <div className="d-flex align-items-center gap-5">
                               <span className="tour__rating d-flex align-items-center gap-1">
-                                 <i class='ri-star-fill' style={{ 'color': 'var(--secondary-color)' }}></i> {avgRating === 0 ? null : avgRating}
+                                 <i className='ri-star-fill' style={{ 'color': 'var(--secondary-color)' }}></i> {avgRating === 0 ? null : avgRating}
                                  {avgRating === 0 ? ('Not rated') : (<span>({reviews?.length})</span>)}
                               </span>
 
-                              <span><i class='ri-map-pin-fill'></i> {address}</span>
+                              <span><i className='ri-map-pin-fill'></i> {address}</span>
                            </div>
 
                            <div className="tour__extra-details">
-                              <span><i class='ri-map-pin-2-line'></i> {city}</span>
-                              <span><i class='ri-money-dollar-circle-line'></i> {price}/ per person</span>
-                              <span><i class='ri-map-pin-time-line'></i> {distance} k/m</span>
-                              <span><i class='ri-group-line'></i> {maxGroupSize} people</span>
+                              <span><i className='ri-map-pin-2-line'></i> {city}</span>
+                              <span><i className='ri-money-dollar-circle-line'></i> {price}/ per person</span>
+                              <span><i className='ri-map-pin-time-line'></i> {distance} k/m</span>
+                              <span><i className='ri-group-line'></i> {maxGroupSize} people</span>
                            </div>
                            <h5>Description</h5>
                            <p>{desc}</p>
@@ -103,16 +116,16 @@ const TourDetails = () => {
 
                            <Form onSubmit={submitHandler}>
                               <div className="d-flex align-items-center gap-3 mb-4 rating__group">
-                                 <span onClick={() => setTourRating(1)}>1 <i class='ri-star-s-fill'></i></span>
-                                 <span onClick={() => setTourRating(2)}>2 <i class='ri-star-s-fill'></i></span>
-                                 <span onClick={() => setTourRating(3)}>3 <i class='ri-star-s-fill'></i></span>
-                                 <span onClick={() => setTourRating(4)}>4 <i class='ri-star-s-fill'></i></span>
-                                 <span onClick={() => setTourRating(5)}>5 <i class='ri-star-s-fill'></i></span>
+                                 <span onClick={() => handleRating(1)}>1 <i className='ri-star-s-fill'></i></span>
+                                 <span onClick={() => handleRating(2)}>2 <i className='ri-star-s-fill'></i></span>
+                                 <span onClick={() => handleRating(3)}>3 <i className='ri-star-s-fill'></i></span>
+                                 <span onClick={() => handleRating(4)}>4 <i className='ri-star-s-fill'></i></span>
+                                 <span onClick={() => handleRating(5)}>5 <i className='ri-star-s-fill'></i></span>
                               </div>
 
                               <div className="review__input">
                                  <input type="text" ref={reviewMsgRef} placeholder='share your thoughts' required />
-                                 <button className='btn primary__btn text-white' type='submit'>
+                                 <button className='submit_btn btn secondary__btn' type='submit'>
                                     Submit
                                  </button>
                               </div>
@@ -131,8 +144,8 @@ const TourDetails = () => {
                                                 <p>{new Date(review.createdAt).toLocaleDateString('en-US', options)}</p>
                                              </div>
 
-                                             <span className='d-flex align-items-center'>
-                                                {review.rating}<i class='ri-star-s-fill'></i>
+                                             <span className='d-flex align-items-center' style={{color: "var(--secondary-color"}}>
+                                                {review.rating}<i className='ri-star-s-fill'></i>
                                              </span>
                                           </div>
 

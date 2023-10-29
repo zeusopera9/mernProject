@@ -12,12 +12,21 @@
     /* box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px; */
 }
 .card-body{
+    background: var(--primary-bg);
+    border-radius: 0 0 15px 15px;
+    /* transition: background 200ms ease; */
+}
+.tour__card-wrapper:hover .card-body{
     background: var(--card-color);
-    border-radius: 0 0 12px 12px;
 }
 
 .tour__img {
     position: relative;
+    filter: saturate(0.4) brightness(0.875);
+    transition: filter 200ms ease;
+}
+.tour__card-wrapper:hover .tour__img {
+    filter: saturate(1) brightness(1);
 }
 
 .tour__img span {
@@ -26,8 +35,8 @@
     right: 0;
     width: max-content;
     height: max-content;
-    z-index: 10;
-    background: rgba(1, 9, 53, 0.534);
+    z-index: 0;
+    background: rgba(11, 20, 73, 0.534);
     backdrop-filter: blur(1px) brightness(0.9) saturate(1.5);
     color: var(--heading-color);
     padding: 0.3rem 0.5rem;
@@ -36,7 +45,7 @@
 }
 
 .card__top span i {
-    color: car(--secondary-color);
+    color: var(--secondary-color);
 }
 
 .tour__rating {
@@ -126,3 +135,22 @@
        font-size: 0.8rem;
     }
  }
+
+
+.tour__card{
+    position: relative;
+    z-index: 2;
+    /* border: 2px solid red; */
+}
+.tour__card-wrapper{
+    position: relative;
+    border-radius: 16px;
+    isolation: isolate;
+    /* border: 10px solid white; */
+    border: 2px solid rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+    transition: border 200ms ease;
+}
+.tour__card-wrapper:hover{
+    border: 2px solid var(--secondary-color);
+}

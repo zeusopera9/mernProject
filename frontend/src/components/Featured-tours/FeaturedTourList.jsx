@@ -7,6 +7,7 @@ import {BASE_URL} from './../../utils/config'
 const FeaturedTourList = () => {
 
   const {data: featuredTours, loading, error} = useFetch(`${BASE_URL}/tours/search/getFeaturedTours`) ;
+  console.log(featuredTours);
 
   return (
     <>

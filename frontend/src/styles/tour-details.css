@@ -6,8 +6,9 @@
 
 .tour__info, .tour__reviews {
     border-radius: .5rem;
-    border: 1px solid rgb(229, 231, 235);
+    border: var(--secondary-border);
     padding: 2rem;
+    background-color: var(--card-color);
 }
 
 .tour__info h2 {
@@ -50,11 +51,13 @@
     font-size: 1.1rem;
     display: flex;
     align-items: center;
-    color:var(--secondary-color);
+    color: var(--text-color);
     cursor:pointer;
-
 }
 
+.rating__group span:hover{
+    color: var(--secondary-color)
+}
 .tour__reviews h4{
     margin-bottom: 3rem;
 
@@ -65,19 +68,45 @@
     align-items: center;
     justify-content: space-between;
     width:100%;
-    padding:0.7rem;
-    border-radius: 2rem;
-    border: 1px solid var(--secondary-color);
+    /* padding:0.7rem; */
+    /* border-radius: 2rem; */
+    border-radius: 8px;
+    border: var(--secondary-border);
+    transition: all 200ms ease;
 }
 
 .review__input input{
     width: 100%;
-    padding: 0.5rem 0;
-    border:none;
+    /* padding: 0.5rem 0; */
+    margin: 0 1rem;
+    border: none;
+    /* border-bottom: var(--secondary-border); */
+    background-color: transparent;
+    color: var(--text-color);
 }
 
 .review__input input:focus{
     outline: none;
+    /* border-bottom: 2px solid var(--secondary-color); */
+}
+.review__input:focus-within{
+    border: 2px solid var(--secondary-color);
+}
+
+.submit_btn{
+    padding: 0.75rem 1rem !important;
+    border-radius: 0 8px 8px 0 !important;
+    color: var(--text-color) !important;
+    background: var(--card-color) !important;
+    height: 100%;
+}
+.submit_btn:hover{
+    background-color: var(--secondary-color) !important;
+    color: black !important; 
+}
+
+.tour__extra-details span i, .ri-map-pin-fill::before{
+    color: var(--secondary-color);
 }
 
 .review__item{
@@ -138,3 +167,4 @@
        font-size: 1rem;
     }
  }  
+

@@ -13,7 +13,9 @@ import FeaturedTourList from '../components/Featured-tours/FeaturedTourList';
 import MasonryImagesGallery from '../components/Image-gallery/MasonryImagesGallery';
 import Testimonials from '../components/Testimonial/Testimonials';
 import Newsletter from '../shared/Newsletter';
+
 const Home = () => {
+
   return (
     <>
       <section>
@@ -34,17 +36,17 @@ const Home = () => {
               </div>
             </Col>
             <Col lg='2'>
-              <div className="hero_img-box">
+              <div className="hero_img-box image1">
                 <img src={heroImg}  alt="" />
               </div>
             </Col>
             <Col lg='2'>
-              <div className="hero_img-box hero__video-box mt-4">
-                <video src={heroVideo}  alt="" controls/>
+              <div className="hero_img-box hero__video-box">
+                <video src={heroVideo}  alt="" loop muted autoPlay/>
               </div>
             </Col>
             <Col lg='2'>
-              <div className="hero_img-box mt-5">
+              <div className="hero_img-box image2">
                 <img src={heroImg02}  alt="" />
               </div>
             </Col>

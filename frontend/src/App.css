@@ -92,7 +92,7 @@ ul {
   /* background: var(--secondary-color) !important;
   border: none !important;
   border-radius: 50px !important; */
-  padding: 0.25rem 1rem !important;
+  padding: 0.25rem 1rem 0.3rem !important;
   font-size: 1.125em !important;
   cursor: pointer !important;
   border-radius: 12.5px !important;
@@ -174,7 +174,7 @@ ul {
   }
 
   .primary__btn, .secondary__btn, .btn-dark {
-    padding: 0.2rem 1.1rem !important;
+    padding: 0.1rem 1.1rem 0.35rem!important;
   }
   .section{
     padding: 40px 0;;

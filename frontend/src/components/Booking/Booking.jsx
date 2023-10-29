@@ -5,6 +5,7 @@ import { Form, FormGroup , ListGroup, ListGroupItem, Button} from 'reactstrap';
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import { BASE_URL } from "../../utils/config";
+import CardBorder from "../CardBorder/CardBorder";
 
 const Booking = ({tour,avgRating}) =>{
 
@@ -66,6 +67,8 @@ const Booking = ({tour,avgRating}) =>{
 
     return(
         <div className="booking">
+            <CardBorder/>
+            <div className="booking__bg"></div>
             <div className="booking__top d-flex align-items-center justify-content-between">
                 <h3>${price} <span>/per person</span></h3>
                 <span className="tour__rating d-flex align-items-center ">
@@ -93,7 +96,7 @@ const Booking = ({tour,avgRating}) =>{
             <div className="booking__bottom">
                 <ListGroup>
                     <ListGroupItem className="border-0 px-0">
-                        <h5 className="d-flex align-items-center gap-1">${price} <i class="ri-close-line"></i> 1 person</h5>
+                        <h5 className="d-flex align-items-center gap-1">${price} <i className="ri-close-line"></i> 1 person</h5>
                         <span>${price}</span>
                     </ListGroupItem>
                     <ListGroupItem className="border-0 px-0">
